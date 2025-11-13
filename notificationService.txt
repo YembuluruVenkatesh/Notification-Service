@@ -37,3 +37,11 @@ notification-system/
 │
 ├── docker-compose.yml
 └── README.md
+
+
+Manually create it in RabbitMQ UI:
+Go to http://localhost:15672
+Login (guest / guest)
+Navigate to Queues → Add a new queue
+Name: notification_queue_Testing
+Click Add Queue
