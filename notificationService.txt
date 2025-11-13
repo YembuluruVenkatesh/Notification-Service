@@ -45,3 +45,16 @@ Login (guest / guest)
 Navigate to Queues → Add a new queue
 Name: notification_queue_Testing
 Click Add Queue
+
+GIT: 
+git checkout -b QUEUE_NAME_Default_to_Changed_For_Test
+git add .
+git commit -m "RabbitMQ QUEUE_NAME  is changed default : notification_queue to notification_queue_Testing"
+git push -u origin QUEUE_NAME_Default_to_Changed_For_Test
+
+
+Docker: 
+docker ps
+docker restart rabbitmq
+docker stop rabbitmq
+docker rm rabbitmq
