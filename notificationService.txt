@@ -1,0 +1,39 @@
+mvn clean install
+mvn spring-boot:run
+
+
+RabbitMQ
+Access UI → http://localhost:15672   
+
+
+POST http://localhost:8080/events/publish?eventType=UserRegistered
+Body: {"userId":1,"email":"test@example.com"}
+
+
+Start RabbitMQ:
+docker-compose up -d
+
+
+Publish event via REST: 
+curl -X POST "http://localhost:8080/events/publish?eventType=UserRegistered" \
+-H "Content-Type: application/json" \
+-d '{"userId": 1, "email": "test@example.com"}'
+
+
+You’ll see in the consumer console:
+🎯 Received Event: UserRegistered -> {userId=1, email=test@example.com}
+📧 Sending welcome email to test@example.com
+
+
+
+🧱 Final Recommended Folder Structure
+notification-system/
+│
+├── producer/
+│   ├── src/main/java/com/example/producer/...
+│
+├── notification-service/
+│   ├── src/main/java/com/example/consumer/...
+│
+├── docker-compose.yml
+└── README.md
